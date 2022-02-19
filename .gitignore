@@ -1,152 +1,118 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+# macOS-related files
+.DS_Store
+.AppleDouble
+.LSOverride
 
-# C extensions
-*.so
+# Windows-related files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+# Python related files.
+*.pyc
+*.pyo
+*.pyi
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+# Editor files.
+*~
+*.bak
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+# Compiled Ren'Py files.
+*.rpyc
+*.rpyb
+*.rpymc
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-cover/
+# Ren'Py log files.
+log.txt
+errors.txt
+traceback.txt
+lint.txt
 
-# Translations
-*.mo
-*.pot
+# Created directories.
+saves/
+tmp/
+cache/
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+# Executables.
+/renpy.exe
+/renpy2.exe
+/renpy3.exe
+/renpy-32.exe
 
-# Flask stuff:
-instance/
-.webassets-cache
+/renpy.sh
+/renpy2.sh
+/renpy3.sh
 
-# Scrapy stuff:
-.scrapy
+/renpy2.app
+/renpy3.app
 
-# Sphinx documentation
-docs/_build/
+# Libraries.
+/lib
 
-# PyBuilder
-.pybuilder/
-target/
+# Platforms.
+/rapt
+/rapt2
+/rapt3
 
-# Jupyter Notebook
-.ipynb_checkpoints
+/renios
+/renios2
+/renios3
 
-# IPython
-profile_default/
-ipython_config.py
+/web
 
-# pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
-# .python-version
+# Docs.
+/sphinx/source/inc
+/sphinx/source/thequestion.rst
+/doc
+/doc-web
+/LICENSE.txt
 
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
+# Gui template.
+/gui/game/gui
 
-# poetry
-#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-#poetry.lock
+# Editors.
+/jedit
+/atom
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
+# Generated source.
+/renpy/vc_version.py
+/module/gen/
+/module/gen3/
+/module/gen-static/
+/module/gen3-static/
+/tutorial/game/tutorial_director.rpy
 
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
+# Module build.
+/module/build
+/module/dist
+/module/emscripten-static
 
-# SageMath parsed files
-*.sage.py
+# Download target.
+/dl
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+# Pygame_sdl2.
+/pygame_sdl2
 
-# Spyder project settings
-.spyderproject
-.spyproject
+# Steam.
+steam_appid.txt
 
-# Rope project settings
-.ropeproject
+# Type analysis.
+/typings
 
-# mkdocs documentation
-/site
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
+# Live2D
+cubism
+CubismSdkForNative-4-*.zip
 
-# Pyre type checker
-.pyre/
+# Created files.
+/launcher/theme
+/screenshot*
+.android.json
 
-# pytype static type analyzer
-.pytype/
+# Old files.
+/0old
 
-# Cython debug symbols
-cython_debug/
-
-# PyCharm
-#  JetBrains specific template is maintainted in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
+# Works in progress, throwaway scripts, etc.
+/scratch
