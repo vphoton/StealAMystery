@@ -1,6 +1,8 @@
 
 
 init python:
+    import pygame
+
     class Card:
         def __init__(self,name,info,sus,posx,posy,rot,sprite,active):
             self.name = name
