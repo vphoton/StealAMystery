@@ -15,8 +15,10 @@ label start:
     call variables
 
     show screen map_screen(main_map)
-    $occupant = kotachis_house.map[10][8].occupant is None
-    "[occupant_flag]"
+    #$occupant = main_map.map[10][8].occupant is None
+    #"[occupant_flag]"
+
+    $main_map.moveDenizen(player_sprite.x, player_sprite.y, 0, -1)
 
     #scene bg room
     #
@@ -36,6 +38,6 @@ label variables:
     define raccoon = Character("Rick", color = "#ff0000", callback = callback)
     image raccoon_idle = anim.Filmstrip("raccoon_idle.png",(128,128),(2,1),0.5,loop=True)
     $ click_snd = "audio/keytap.wav"
-    $ newCard = Card()
+    #$ newCard = Card()
 
     return

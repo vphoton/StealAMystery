@@ -1,10 +1,12 @@
 
 
+define tile_size = 128
+
 init python:
 
     class MainMap:
-        def __init__(self, map_grid, img, start_x, start_y):
-            self.map_grid = map_grid
+        def __init__(self, map, img, start_x, start_y):
+            self.map = map
             self.img = img
             self.center_x = start_x
             self.center_y = start_y
@@ -16,6 +18,9 @@ init python:
             if not self.isEmpty(x, y):
                 return
             self.map[y][x].occupant = denizen
+
+        def unoccupy(self, x, y):
+            self.map[y][x].occupant = None
 
         def moveDenizen(self, x, y, offx, offy):
             if self.isEmpty(x, y):
@@ -35,41 +40,62 @@ init python:
                 self.center_x += offx
                 self.center_y += offy
 
-        class MapTile:
-            def __init__(self, occupant = None):
-                self.occupant = occupant
+        def triggerInteraction(self, x, y):
+            if x < 0 or x >= len(self.map[0]):
+                return
+            if y < 0 or y >= len(self.map):
+                return
+            if self.isEmpty(x, y):
+                return
+            self.map[y][x].occupant.interact()
 
-        class MapOccupant:
-            def __init__(self, x, y):
-                self.x = x
-                self.y = y
+    class MapTile:
+        def __init__(self, occupant = None):
+            self.occupant = occupant
 
-        class MapDenizen(MapOccupant):
-            def __init__(self, x, y, img, width, height):
-                super(MapDenizen, self).__init__(x,y)
-                self.img = img
-                self.width = width
-                self.height = height
+    class MapOccupant:
+        def __init__(self, x, y):
+            self.x = x
+            self.y = y
 
-            def getOffset(self):
-                return (tile_size - self.width, tile_size - self.height)
+        def interact(self):
+            pass
 
-        house_map = []
+    class MapDenizen(MapOccupant):
+        def __init__(self, x, y, img, width, height, interaction):
+            super(MapDenizen, self).__init__(x,y)
+            self.img = img
+            self.width = width
+            self.height = height
+            self.interaction = interaction
 
-        for i in range(12):
-            new_row = []
-            for j in range(19):
-                new_row.append(MapTile())
-            house_map.append(new_row)
+        def getOffset(self):
+            return (tile_size - self.width, tile_size - self.height)
 
-            # https://youtu.be/ZYdBq4veSEs?t=5649
+        def interact(self):
+            self.interaction(self)
 
-        kotachis_house = AstersmMap(house_map, "kotachis house inside.png", )
-        kotachi_sprite = MapDenizen(10, 10, "kotachi", 79, `36`)
-        kotachis_house.occupy(10, 10, kotachi_sprite)
-        wall = MapOccupant(8, 10)
-        kotachis_house.occupy(8, 10, wall)
+    main_map_array = []
 
+    for i in range(16):
+        new_row = []
+        for j in range(16):
+            new_row.append(MapTile())
+        main_map_array.append(new_row)
+
+        # https://youtu.be/ZYdBq4veSEs?t=5649
+    main_map = MainMap(main_map_array, "MainMap.png", 8, 7)
+    player_sprite = MapDenizen(8, 7, "player", 128, 128, no_op)
+    main_map.occupy(8, 7, player_sprite)
+    # water
+    wall1 = MapOccupant(8, 9)
+    main_map.occupy(8, 9, wall1)
+    wall2 = MapOccupant(8, 8)
+    main_map.occupy(8, 8, wall2)
+    wall3 = MapOccupant(8, 7)
+    main_map.occupy(8, 7, wall3)
+    #cupcake_sprite = MapDenizen(5, 5, "cupcake.png", 35,26, disappear)
+    #main_map.occupy(5, 5, cupcake_sprite)
 
 
 
