@@ -107,6 +107,8 @@ define config.end_game_transition = None
 ## "window hide", and "window auto" statements.
 
 define config.window = "auto"
+define config.screen_width = 1920
+define config.screen_height = 1080
 
 
 ## Transitions used to show and hide the dialogue window
@@ -120,7 +122,7 @@ define config.window_hide_transition = Dissolve(.2)
 ## Controls the default text speed. The default, 0, is infinite, while any other
 ## number is the number of characters per second to type out.
 
-default preferences.text_cps = 0
+default preferences.text_cps = 30
 
 
 ## The default auto-forward delay. Larger numbers lead to longer waits, with 0

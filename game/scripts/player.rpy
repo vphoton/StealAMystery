@@ -1,6 +1,10 @@
 default k_dir = "front"
+default e_dir = "front"
+default f_dir = "front"
 
 image player = "player [k_dir]"
+image ella = "ella [e_dir]"
+image fred = "fred [f_dir]"
 
 define k_offset = 0
 
@@ -19,6 +23,7 @@ init python:
         x, y = getFacingTile()
         main_map.triggerInteraction(x, y)
 
+# PLAYER
 image player back:
     anim.Filmstrip("raccoon_idle.png",(128,128),(2,1),0.5,loop=True)
 
@@ -33,6 +38,20 @@ image player left:
 image player right:
     anim.Filmstrip("raccoon_idle.png",(128,128),(2,1),0.5,loop=True)
 
+# NPCS
+image ella back:
+    anim.Filmstrip("EllaIdle.png",(128,128),(2,1),0.5,loop=True)
+
+image ella front:
+    xzoom -1.0
+    anim.Filmstrip("EllaIdle.png",(128,128),(2,1),0.5,loop=True)
+
+image fred back:
+    anim.Filmstrip("Fred.png",(128,128),(2,1),0.5,loop=True)
+
+image fred front:
+    xzoom -1.0
+    anim.Filmstrip("Fred.png",(128,128),(2,1),0.5,loop=True)
 
 # "kright1.png"
 # 0.15

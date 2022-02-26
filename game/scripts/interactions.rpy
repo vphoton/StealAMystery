@@ -1,5 +1,8 @@
 
 
+# $ showAscreen(theScreen):
+#     show screen theScreen
+
 
 init python:
 
@@ -9,3 +12,6 @@ init python:
     def disappear(denizen):
         #need to know the actual map that will be using
         main_map.unoccupy(denizen.x, denizen.y)
+
+    def roomTP(theScreen):
+        "ahhh"

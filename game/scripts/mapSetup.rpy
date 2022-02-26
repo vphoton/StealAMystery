@@ -75,7 +75,23 @@ init python:
         def interact(self):
             self.interaction(self)
 
+    class MapDoor(MapOccupant):
+        def __init__(self, x, y, width, height, interaction, passRoom):
+            super(MapDoor, self).__init__(x,y)
+            self.width = width
+            self.height = height
+            self.interaction = interaction
+            self.passRoom = passRoom
+
+        def getOffset(self):
+            return (tile_size - self.width, tile_size - self.height)
+
+        def interact(self):
+            self.interaction(self.passRoom)
+
+
     main_map_array = []
+    fred_map_array = []
 
     for i in range(16):
         new_row = []
@@ -83,17 +99,37 @@ init python:
             new_row.append(MapTile())
         main_map_array.append(new_row)
 
+    for i in range(10):
+        new_row = []
+        for j in range(10):
+            new_row.append(MapTile())
+        main_map_array.append(new_row)
+
         # https://youtu.be/ZYdBq4veSEs?t=5649
+    # maps
     main_map = MainMap(main_map_array, "MainMap.png", 8, 7)
+    fred_map = MainMap(fred_map_array, "Camper.png", 6, 5)
+
+    # sprites
     player_sprite = MapDenizen(8, 7, "player", 128, 128, no_op)
     main_map.occupy(8, 7, player_sprite)
+    ella_sprite = MapDenizen(11, 14, "ella", 128, 128, no_op)
+    main_map.occupy(11, 14, ella_sprite)
+    fred_sprite = MapDenizen(5, 8, "fred", 128, 128, no_op)
+    main_map.occupy(5, 8, fred_sprite)
+
+    # teleporters to other rooms
+    rv_sprite = MapDoor(10, 7, 128, 128, roomTP, fred_map)
+    main_map.occupy(10, 7, rv_sprite)
+
+
     # water
-    wall1 = MapOccupant(8, 9)
-    main_map.occupy(8, 9, wall1)
-    wall2 = MapOccupant(8, 8)
-    main_map.occupy(8, 8, wall2)
-    wall3 = MapOccupant(8, 7)
-    main_map.occupy(8, 7, wall3)
+    # wall1 = MapOccupant(8, 9)
+    # main_map.occupy(8, 9, wall1)
+    # wall2 = MapOccupant(8, 8)
+    # main_map.occupy(8, 8, wall2)
+    # wall3 = MapOccupant(8, 7)
+    # main_map.occupy(8, 7, wall3)
     #cupcake_sprite = MapDenizen(5, 5, "cupcake.png", 35,26, disappear)
     #main_map.occupy(5, 5, cupcake_sprite)
 
